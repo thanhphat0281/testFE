@@ -182,17 +182,17 @@
                                                             </fieldset>
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-12">
+                                                    <div class="col-sm-12" >
                                                         <label for="comment" style="margin-left: 16px;">Your Review
                                                                 <span class="required">*</span>
                                                             </label>
                                                     </div>
 
-                                                    <p class="comment-form-comment">
+                                                    <p class="comment-form-comment" style="font-family: 'Montserrat', sans-serif !important;">
 
-                                                        <textarea #name="ngModel" [(ngModel)]="ratingService.rating.review" name="review" cols="45" rows="8" aria-required="true" required>123213
+                                                        <textarea style="font-family: 'Inter', sans-serif !important;" #name="ngModel" [(ngModel)]="ratingService.rating.review"  name="review" cols="45" rows="8" aria-required="true" required>123213
                                                         </textarea  ></p>
-                                                    <input type="hidden" name="bookID" required />
+                                                    <input style="font-family: 'Inter', sans-serif !important;" type="hidden" name="bookID" required />
                                                     <input type='hidden' name='userID' />
                                                     <p lass="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Submit" />
                                                     </p>
@@ -306,7 +306,7 @@
                                                     <span *ngFor="let i of [].constructor(5-(rating.star-0.5+1))" class="float-right"><i class="text-warning far fa-star"></i></span>
                                                     </span>
                                                 <div class="clearfix"></div>
-                                                <p>{{rating.review}}</p>
+                                                <p  style="font-family: 'Inter', sans-serif !important;">{{rating.review}}</p>
                                                 <p>
                                                     <a class="float-right btn text-white btn-danger" id="dislike">
                                                         <i class="fa fa-thumbs-down"></i>  <span class="number_dislike"> &nbsp;0</span></a>&nbsp;
@@ -426,7 +426,7 @@
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 1000000;">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-header border-bottom-0">
+                <div class="modal-header border-bottom-0" style="padding-top: 10px !important; padding-bottom: 0px !important;">
                     <h5 class="modal-title" id="exampleModalLabel" style="color: #2d3436;font-size: 15px; text-align: left !important;width: 720px;">
                         <b >Sách <span style="color: #e17055;">{{nameBookShowOnModel}}</span> đã được thêm vào giỏ hàng</b>
                         
@@ -442,17 +442,7 @@
                         <h5 style="margin-top: 8px;">Tổng tiền : <b style="color :#ff7675;font-size: 16px;">{{TongTien|currency:"VND"}}</b></h5>
                     </div>
 
-                    <div class="col mb-2">
-                        <div class="row">
-                            <div class="col-sm-12  col-md-6">
-                                <button id="continue" class="btn btn-block btn-light " style="padding: 10px 16px;" data-dismiss="modal" (click)="goToHome()">Tiếp tục mua hàng</button>
-                            </div>
-                            <div class="col-sm-12 col-md-6 text-right">
-                                <button class="btn btn-lg btn-block btn-success text-uppercase" type="button" data-dismiss="modal" (click)="goToCartBook()">Giỏ hàng</button>
-                            </div>
-
-                        </div>
-                    </div>
+                    
                     <h4>Có thể bạn sẽ thích</h4>
                     <div class="modal-footer border-top-0 d-flex justify-content-between" id="scroll">
                         <div class="row" style="font-family: 'Montserrat', sans-serif !important;">
@@ -531,8 +521,19 @@
                         </div>
                        
                     </div>
-                    <div style="font-family: 'Montserrat', sans-serif !important;">
+                    <div style="font-family: 'Montserrat', sans-serif !important;margin-bottom: none !important;">
                         <pagination-controls id="2" (pageChange)="p1 = $event"></pagination-controls>
+                    </div>
+                    <div class="col mb-2" style="padding: 10px 0px;">
+                        <div class="row">
+                            <div class="col-sm-12  col-md-6">
+                                <button id="continue" class="btn btn-block btn-light " style="padding: 10px 16px;" data-dismiss="modal" (click)="goToHome()">Tiếp tục mua hàng</button>
+                            </div>
+                            <div class="col-sm-12 col-md-6 text-right">
+                                <button class="btn btn-lg btn-block btn-success text-uppercase" type="button" data-dismiss="modal" (click)="goToCartBook()">Giỏ hàng</button>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -877,6 +878,7 @@
     width: 100%;
     box-sizing: border-box;
     margin-right: 5px;
+    
 }
     .woocommerce .woocommerce-info:before,
     .single .post-meta .author a,
