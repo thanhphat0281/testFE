@@ -11,7 +11,7 @@ export class OrderDetailService {
   orderDetail: OrderDetail[];
 
   constructor(private _http: HttpClient ,private _host:HostService) { }
-  readonly baseURL = this._host.host()+':3000/orderDetails';
+  readonly baseURL = this._host.host()+'/orderDetails';
   getOrderDetailList() {
     return this._http.get(this.baseURL);
   }

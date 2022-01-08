@@ -11,7 +11,7 @@ export class AuthorService {
   authors: Author[];
 
   constructor(private _http: HttpClient ,private _host:HostService) { }
-  readonly baseURL = this._host.host()+':3000/authors';
+  readonly baseURL = this._host.host()+'/authors';
   getAuthorList() {
     return this._http.get(this.baseURL);
   }

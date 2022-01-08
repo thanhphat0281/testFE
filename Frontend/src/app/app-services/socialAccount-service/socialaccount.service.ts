@@ -12,7 +12,7 @@ export class SocialaccountService {
 
 
   constructor(private _http: HttpClient ,private _host:HostService) { }
-  readonly baseURL = this._host.host()+':3000/socials';
+  readonly baseURL = this._host.host()+'/socials';
   loginFacebook(facebook_id: String) {
     return this._http.post(this.baseURL + "/facebook",{
       facebook_id: facebook_id

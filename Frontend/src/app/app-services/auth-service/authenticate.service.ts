@@ -28,7 +28,7 @@ export class AuthenticateService {
   constructor(private router: Router,private http: HttpClient,private _host:HostService,private socialAccountService: SocialaccountService) {
 
   }
-  readonly baseURL = this._host.host()+':3000';
+  readonly baseURL = this._host.host();
   login(credentials): Observable<any> {
     return this.http.post(this.baseURL+'/users/login', credentials)
       .pipe(map(

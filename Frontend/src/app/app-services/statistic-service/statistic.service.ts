@@ -8,7 +8,7 @@ import { HostService } from '../aHost/Host.service';
 export class StatisticService {
 
   constructor(private _http: HttpClient ,private _host:HostService) { }
-  readonly baseURL = this._host.host()+':3000/statistic';
+  readonly baseURL = this._host.host()+'/statistic';
   getFourBooksBuyTheMost() {
     return this._http.get(this.baseURL+'/FourBookBuyTheMost');
   }

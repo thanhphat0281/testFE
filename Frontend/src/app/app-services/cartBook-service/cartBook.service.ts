@@ -11,7 +11,7 @@ export class CartBookService {
   cartBook: CartBook[];
 
   constructor(private _http: HttpClient ,private _host:HostService) { }
-  readonly baseURL = this._host.host()+':3000/cartBooks';
+  readonly baseURL = this._host.host()+'/cartBooks';
   getCartBookList() {
     return this._http.get(this.baseURL);
   }

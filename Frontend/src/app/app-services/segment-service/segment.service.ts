@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class SegmentService {
   segment: Segment
   constructor(private _http: HttpClient, private _host: HostService) { }
-    readonly baseURL = this._host.host() + ':3000/segments';
+    readonly baseURL = this._host.host() + '/segments';
     getSegments() {
         return this._http.get(this.baseURL);
     }

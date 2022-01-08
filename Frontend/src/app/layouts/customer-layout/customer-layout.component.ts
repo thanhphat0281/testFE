@@ -17,6 +17,7 @@ import { BestService } from 'src/app/app-services/best-service/best.service';
 import { SegmentService } from 'src/app/app-services/segment-service/segment.service';
 declare var $: any;
 declare let Winwheel: any
+import { HostService } from 'src/app/app-services//aHost/Host.service';
 
 @Component({
   selector: 'app-customer-layout',
@@ -45,9 +46,11 @@ export class CustomerLayoutComponent implements OnInit {
   topAuthor = []
   constructor(private _router: Router, private userService: UserService, private authService: AuthenticateService,
     private segmentService: SegmentService, private bookCategoryService: CategoryService, private authorService: AuthorService,
-    private _pointService: PointService, private _discountCode: DiscountCodeService, private _best: BestService) {
+    private _pointService: PointService, private _discountCode: DiscountCodeService, private _best: BestService,private _host:HostService) {
 
   }
+
+  readonly baseURL = this._host.host();
   changespinner = "chocolate";
   segments: any
   segmentsList = [] 
@@ -200,13 +203,13 @@ export class CustomerLayoutComponent implements OnInit {
       //tăng point 
       $.ajax({
         type: "post",
-        url: 'http://localhost:3000/points/updatePointByUserID',
+        url: this.baseURL+'/points/updatePointByUserID',
         data: {
           userID: (JSON.parse(localStorage.getItem('accountSocial')))._id,
           point: -80
         },
         success: function (response) {
-          $.get('http://localhost:3000/points/getPointByUserID/' + (JSON.parse(localStorage.getItem('accountSocial')))._id, function (data) {
+          $.get(this.baseURL+'/points/getPointByUserID/' + (JSON.parse(localStorage.getItem('accountSocial')))._id, function (data) {
             $("#pointcur").html(data[0].point + " Điểm");
           });
         }
@@ -214,7 +217,7 @@ export class CustomerLayoutComponent implements OnInit {
     }
     //startSpin
     function startSpin() {
-      $.get('http://localhost:3000/points/getPointByUserID/' + (JSON.parse(localStorage.getItem('accountSocial')))._id, function (data) {
+      $.get(this.baseURL+'/points/getPointByUserID/' + (JSON.parse(localStorage.getItem('accountSocial')))._id, function (data) {
         if (data[0].point >= 80) {
           // Ensure that spinning can't be clicked again while already running.
           if (wheelSpinning == false) {
@@ -246,13 +249,13 @@ export class CustomerLayoutComponent implements OnInit {
           addPoint = str[1];
           $.ajax({
             type: "post",
-            url: 'http://localhost:3000/points/updatePointByUserID',
+            url: this.baseURL+'/points/updatePointByUserID',
             data: {
               userID: (JSON.parse(localStorage.getItem('accountSocial')))._id,
               point: addPoint
             },
             success: function (response) {
-              $.get('http://localhost:3000/points/getPointByUserID/' + (JSON.parse(localStorage.getItem('accountSocial')))._id, function (data) {
+              $.get(this.baseURL+'/points/getPointByUserID/' + (JSON.parse(localStorage.getItem('accountSocial')))._id, function (data) {
                 $("#pointcur").html(data[0].point + " Điểm");
               });
             }
@@ -263,7 +266,7 @@ export class CustomerLayoutComponent implements OnInit {
           var str = res[indicatedSegment.text.split(" ").length - 1];
           $.ajax({
             type: "post",
-            url: 'http://localhost:3000/discountCodes',
+            url: this.baseURL+'/discountCodes',
             data: {
               userID: (JSON.parse(localStorage.getItem('accountSocial')))._id,
               discountCode: str.slice(0, -1),

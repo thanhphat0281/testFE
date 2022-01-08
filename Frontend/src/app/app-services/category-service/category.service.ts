@@ -11,7 +11,7 @@ export class CategoryService {
   categories: Category[];
 
   constructor(private _http: HttpClient ,private _host:HostService) { }
-  readonly baseURL = this._host.host()+':3000/categories';
+  readonly baseURL = this._host.host()+'/categories';
   getCategoryList() {
     return this._http.get(this.baseURL);
   }

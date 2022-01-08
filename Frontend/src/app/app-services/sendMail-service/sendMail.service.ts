@@ -11,7 +11,7 @@ export class SendMailService {
   sendMail: SendMail[];
 
   constructor(private _http: HttpClient ,private _host:HostService) { }
-  readonly baseURL = this._host.host()+':3000/send';
+  readonly baseURL = this._host.host()+'/send';
 
   postsendMail(sendMail: SendMail) {
     return this._http.post(this.baseURL, sendMail);

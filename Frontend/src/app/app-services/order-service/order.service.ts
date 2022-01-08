@@ -11,8 +11,8 @@ export class OrderService {
   order: Order[];
 
   constructor(private _http: HttpClient ,private _host:HostService) { }
-  readonly baseURL = this._host.host()+':3000/orders';
-  readonly baseURLMomo = this._host.host()+':3000/paymentMomo'
+  readonly baseURL = this._host.host()+'/orders';
+  readonly baseURLMomo = this._host.host()+'/paymentMomo'
   getOrderList() {
     return this._http.get(this.baseURL);
   }

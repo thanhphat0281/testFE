@@ -11,7 +11,7 @@ export class RatingService {
   ratings: Rating[];
 
   constructor(private _http: HttpClient ,private _host:HostService) { }
-  readonly baseURL = this._host.host()+':3000/ratings';
+  readonly baseURL = this._host.host()+'/ratings';
   getRatingList() {
     return this._http.get(this.baseURL);
   }

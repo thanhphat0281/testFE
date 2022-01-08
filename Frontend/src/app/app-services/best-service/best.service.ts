@@ -11,7 +11,7 @@ export class BestService {
   Book: Book[];
 
   constructor(private _http: HttpClient ,private _host:HostService) { }
-  readonly baseURL = this._host.host()+':3000/best_selling';
+  readonly baseURL = this._host.host()+'/best_selling';
   getBookBestSelling() { 
     return this._http.get(this.baseURL+'/Book');
   }

@@ -9,7 +9,7 @@ import { HostService } from '../aHost/Host.service';
 })
 export class VerifyEmailService {
   verifyEmail: VerifyEmail
-  readonly apiVerifyMail = this._host.host()+':3000';
+  readonly apiVerifyMail = this._host.host();
   headers = new HttpHeaders().append('Content-Type', 'application/json');
   constructor(private router: Router, private httpClient: HttpClient,private _host:HostService) { }
   actionVerifyEmail(email: string) {

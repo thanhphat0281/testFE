@@ -11,7 +11,7 @@ export class PointService {
     points: Point[];
 
     constructor(private _http: HttpClient, private _host: HostService) { }
-    readonly baseURL = this._host.host() + ':3000/points';
+    readonly baseURL = this._host.host() + '/points';
     getPointList() {
         return this._http.get(this.baseURL);
     }

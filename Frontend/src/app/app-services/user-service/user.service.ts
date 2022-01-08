@@ -11,7 +11,7 @@ export class UserService {
   selectedUser: User;
 
   constructor(private _http: HttpClient ,private _host:HostService) { }
-  readonly baseURL = this._host.host()+':3000/users';
+  readonly baseURL = this._host.host()+'/users';
   users: User[]
   register(body:any){
     return this._http.post(this.baseURL +'/signup',body,{

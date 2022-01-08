@@ -11,7 +11,7 @@ export class FavoriteService {
   categories: Favorite[];
 
   constructor(private _http: HttpClient ,private _host:HostService) { }
-  readonly baseURL = this._host.host()+':3000/favorites';
+  readonly baseURL = this._host.host()+'/favorites';
   getFavoriteList() {
     return this._http.get(this.baseURL);
   }

@@ -11,7 +11,7 @@ export class Recommend {
   Book: Book[];
 
   constructor(private _http: HttpClient ,private _host:HostService) { }
-  readonly baseURL = this._host.host()+':3000';
+  readonly baseURL = this._host.host();
 
   getAllRecommendByUserID(userID) { 
     console.log(11321312)

@@ -11,7 +11,7 @@ export class SeriService {
   series: Seri[];
   seri: Seri
   constructor(private _http: HttpClient ,private _host:HostService) { }
-  readonly baseURL = this._host.host()+':3000/series';
+  readonly baseURL = this._host.host()+'/series';
   getSeriList() {
     return this._http.get(this.baseURL);
   }

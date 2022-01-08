@@ -14,7 +14,7 @@ export class payMomoService {
   order: Order[];
 
   constructor(private _http: HttpClient ,private _host:HostService) { }
-  readonly baseURL = this._host.host()+':3000/paymentMoMo';
+  readonly baseURL = this._host.host()+'/paymentMoMo';
   
   postPayMoMo(order:Order, ArrayOrder:OrderDetail[] , sendMail:SendMail) {
     return this._http.post(this.baseURL, {order:order,orderDetails:ArrayOrder,sendMail:sendMail});

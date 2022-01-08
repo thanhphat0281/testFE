@@ -11,7 +11,7 @@ export class CustomerService {
   customer: Customer[];
 
   constructor(private _http: HttpClient ,private _host:HostService) { }
-  readonly baseURL = this._host.host()+':3000/customers';
+  readonly baseURL = this._host.host()+'/customers';
   getCustomerList() {
     return this._http.get(this.baseURL);
   }

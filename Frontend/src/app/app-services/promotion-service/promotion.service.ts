@@ -11,7 +11,7 @@ export class PromotionService {
   promotion: Promotion[];
 
   constructor(private _http: HttpClient ,private _host:HostService) { }
-  readonly baseURL = this._host.host()+':3000/promotions';
+  readonly baseURL = this._host.host()+'/promotions';
   getPromotionList() {
     return this._http.get(this.baseURL);
   }

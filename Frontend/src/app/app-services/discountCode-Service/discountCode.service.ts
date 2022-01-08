@@ -11,7 +11,7 @@ export class DiscountCodeService {
   discountCode: DiscountCode[];
 
   constructor(private _http: HttpClient ,private _host:HostService) { }
-  readonly baseURL = this._host.host()+':3000/discountCodes';
+  readonly baseURL = this._host.host()+'/discountCodes';
   getDiscountCodeList() {
     return this._http.get(this.baseURL);
   }
