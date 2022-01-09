@@ -49,7 +49,7 @@ let config = new AuthServiceConfig([
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider('673000620015037')
+    provider: new FacebookLoginProvider('467160208312315')
   }
 ], false);
 // Import the library
