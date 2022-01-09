@@ -96,7 +96,7 @@ export class DashboardComponent implements OnInit {
   TotalPriceByMonth = []
   TotalBookByMonth = []
   TotalPriceOnEachMonth(){
-    this.totalMonth.yearCheck = "2021"
+    this.totalMonth.yearCheck = "2022"
     this.statisticService.TotalPriceOnEachMonth(this.totalMonth).subscribe(res => {
       // this.TotalPriceByMonth = 
       this.barChartOptions = {
